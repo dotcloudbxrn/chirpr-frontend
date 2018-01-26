@@ -42,7 +42,7 @@ export default {
       })
     },
     async cool () {
-      console.log("okay?")
+      console.log('okay?')
       this.cool = (await Cool.index()).data
       alert(this.cool.hi)
     }
