@@ -19,6 +19,7 @@
       <!-- RIGHT-SIDE PANEL ITEMS -->
       <items-right/>
     </v-toolbar>
+    Wtffffff
   </v-layout>
 </template>
 
