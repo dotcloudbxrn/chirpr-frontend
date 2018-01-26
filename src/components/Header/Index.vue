@@ -12,8 +12,8 @@
       </v-toolbar-items>
       <v-spacer></v-spacer>
       <!-- SITE LOGO -->
-      <span id="icon" class="mx-auto" @click="redirectHome">
-        <v-icon color="primary" large>bubble_chart</v-icon>        
+      <span id="icon" class="mx-auto">
+        <v-icon color="primary" large @click="cool">bubble_chart</v-icon>  
       </span>
       <v-spacer></v-spacer>
       <!-- RIGHT-SIDE PANEL ITEMS -->
@@ -23,6 +23,7 @@
 </template>
 
 <script>
+import Cool from '@/services/Cool'
 import ItemsRight from './ItemsRight.vue'
 export default {
   data: () => {
@@ -38,6 +39,10 @@ export default {
       this.$router.push({
         name: 'home'
       })
+    },
+    async cool () {
+      this.cool = (await Cool.index()).data
+      alert(this.cool.hi)
     }
   }
 }
