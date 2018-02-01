@@ -1,31 +1,31 @@
 <template>
-  <v-layout >
-    <v-toolbar app dense fixed dark class="grey lighten-4 px-4">
-      <!-- HOME BUTTON -->
-      <v-toolbar-items style="width:400px;">
-      <v-layout>
-        <v-btn flat light color="primary" @click="redirectHome">
-         <v-icon left>home</v-icon>
-          Home
-        </v-btn>
-      </v-layout>
-      </v-toolbar-items>
-      <v-spacer></v-spacer>
-      <!-- SITE LOGO -->
-      <span id="icon" class="mx-auto">
-        <v-icon color="primary" large @click="cool">bubble_chart</v-icon>  
-      </span>
-      <v-spacer></v-spacer>
-      <!-- RIGHT-SIDE PANEL ITEMS -->
-      <items-right/>
-    </v-toolbar>
-    Wtffffff
-  </v-layout>
+  <v-toolbar app dense fixed dark class="grey lighten-4">
+    <v-spacer></v-spacer>
+    <!-- HOME BUTTON -->
+    <v-toolbar-items style="width:400px;">
+    <!-- <v-layout> -->
+      <v-btn flat light color="primary" @click="redirectHome">
+        <v-icon left>home</v-icon>
+        Home
+      </v-btn>
+    <!-- </v-layout> -->
+    </v-toolbar-items>
+    <v-spacer></v-spacer>
+    <!-- SITE LOGO -->
+    <span id="icon" class="mx-auto">
+      <v-icon color="primary" large @click="cool">bubble_chart</v-icon>
+      <!-- <v-progress-circular v-else indeterminate color="primary"></v-progress-circular> -->
+    </span>
+    <v-spacer></v-spacer>
+    <!-- RIGHT-SIDE PANEL ITEMS -->
+    <items-right/>
+    <v-spacer></v-spacer>
+  </v-toolbar>
 </template>
 
 <script>
-import Cool from '@/services/Cool'
 import ItemsRight from './ItemsRight.vue'
+import Cool from '@/services/Cool'
 export default {
   data: () => {
     return {
@@ -42,7 +42,7 @@ export default {
       })
     },
     async cool () {
-      console.log('okay?')
+      // this.$store.dispatch('greet', )
       this.cool = (await Cool.index()).data
       alert(this.cool.hi)
     }
@@ -51,7 +51,6 @@ export default {
 </script>
 
 <style>
-
 #lowercase-toolbar-button {
   text-transform: none;
   font-weight: 700;

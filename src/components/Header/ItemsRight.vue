@@ -19,7 +19,11 @@
           </v-avatar>
         </v-btn>
         <v-list>
-          <v-list-tile v-for="item in items" :key="item.title" @click="">
+          <v-list-tile
+          v-for="item in items"
+          :key="item.title"
+          router
+          :to="item.link">
             <v-list-tile-title>
               {{ item.title }}
             </v-list-tile-title>
@@ -27,7 +31,7 @@
         </v-list>
       </v-menu>
       <v-btn
-        id="lowercase-toolbar-button"
+        class="lowercase-toolbar-button"
         round
         color="primary"
         dark
@@ -42,16 +46,20 @@ export default {
   data: () => ({
     items: [
       {
-        title: 'YourUsername'
+        title: 'YourUsername',
+        link: '/deba'
       },
       {
-        title: 'Profile'
+        title: 'Profile',
+        link: '/'
       },
       {
-        title: 'Log out'
+        title: 'Log out',
+        link: '/'
       },
       {
-        title: 'Night mode'
+        title: 'Night mode',
+        link: '/'
       }
     ]
   })
@@ -59,14 +67,12 @@ export default {
 </script>
 
 <style scoped>
-ul {
-  border-bottom: 3px solid rgb(114, 114, 114);
-}
+/* li:first-child {
+  /* padding: 5px 0px; */
+  /* border-bottom: 1px solid rgb(114, 114, 114);
+  border-top: 1px solid rgb(114, 114, 114);   */
+/* */
 
-#lowercase-toolbar-button {
-  text-transform: none;
-  font-weight: 700;
-}
 
 #profile {
   cursor: pointer;

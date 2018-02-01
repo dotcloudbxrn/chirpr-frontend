@@ -1,7 +1,8 @@
 <template>
   <v-app>
-    <page-header />
+    <page-header/>
     <main>
+      <router-view></router-view>
     </main>
   </v-app>
 </template>
@@ -9,10 +10,12 @@
 
 <script>
 import PageHeader from '@/components/Header/Index.vue'
+import Feed from '@/components/Feed/Index.vue'
 export default {
   name: 'app',
   components: {
-    PageHeader
+    PageHeader,
+    Feed
   }
 }
 </script>
@@ -24,9 +27,14 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  margin-top: 48px;
 }
 .danger-alert {
   color: red;
+}
+
+.lowercase-toolbar-button {
+  text-transform: none;
+  font-weight: 700;
 }
 </style>
