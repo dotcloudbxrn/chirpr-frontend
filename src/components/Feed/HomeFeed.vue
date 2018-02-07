@@ -13,7 +13,7 @@
           </div>
         </v-card-title>
         <v-card-actions>
-          <v-btn flat>Tweets</v-btn>
+          <v-btn flat>Chirps</v-btn>
           <v-btn flat>Following</v-btn>
           <v-btn flat>Followers</v-btn>
         </v-card-actions>
