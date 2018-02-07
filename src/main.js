@@ -6,9 +6,12 @@ import router from './router'
 import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.min.css'
 import store from './store/store'
+import Panel from '@/components/Panel/Panel.vue'
 Vue.use(Vuetify)
 
 Vue.config.productionTip = false
+
+Vue.component('panel', Panel)
 
 /* eslint-disable no-new */
 new Vue({

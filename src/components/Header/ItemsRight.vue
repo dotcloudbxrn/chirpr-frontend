@@ -9,6 +9,7 @@
         prepend-icon="search"
         name="header_search"
         label="Search Chirper"
+        
       ></v-text-field>
     </v-layout>
     <div class="d-flex align-center" style="margin-left: auto">
@@ -47,11 +48,11 @@ export default {
     items: [
       {
         title: 'YourUsername',
-        link: '/deba'
+        link: '/profile'
       },
       {
         title: 'Profile',
-        link: '/'
+        link: '/profile'
       },
       {
         title: 'Log out',

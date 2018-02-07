@@ -1,21 +1,27 @@
 <template>
-  <v-app>
-    <page-header/>
-    <main>
-      <router-view></router-view>
-    </main>
-  </v-app>
+  <div id="app">
+    <v-app>
+      <page-header/>
+      <main>
+        <v-container
+          fluid
+          grid-list-xl
+          class="px-0 pt-0 mt-0"
+        >
+          <router-view/>
+        </v-container>
+      </main>
+    </v-app>
+  </div>
 </template>
 
 
 <script>
 import PageHeader from '@/components/Header/Index.vue'
-import Feed from '@/components/Feed/Index.vue'
 export default {
   name: 'app',
   components: {
-    PageHeader,
-    Feed
+    PageHeader
   }
 }
 </script>
@@ -28,6 +34,7 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 48px;
+  min-width: 700px;
 }
 .danger-alert {
   color: red;

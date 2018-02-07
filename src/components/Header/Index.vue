@@ -1,11 +1,11 @@
 <template>
-  <v-toolbar app dense fixed dark class="grey lighten-4">
+  <v-toolbar app dense fixed dark class="white">
     <v-spacer></v-spacer>
     <!-- HOME BUTTON -->
     <v-toolbar-items style="width:400px;">
     <!-- <v-layout> -->
       <v-btn flat light color="primary" @click="redirectHome">
-        <v-icon left>home</v-icon>
+        <v-icon left>account_balance</v-icon>
         Home
       </v-btn>
     <!-- </v-layout> -->
