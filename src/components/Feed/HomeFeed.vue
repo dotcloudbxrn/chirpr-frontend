@@ -1,7 +1,7 @@
 <template>
   <v-layout justify-center class="pt-2">
     <v-flex xs3>
-      <v-card>
+      <v-card v-if="$store.state.isUserLoggedIn">
         <v-card-media src="https://images.duckduckgo.com/iu/?u=http%3A%2F%2Fwallpapercave.com%2Fwp%2F6rh80gM.jpg&f=1" height="200px"></v-card-media>
         <v-card-title>
           <v-avatar>
@@ -13,14 +13,19 @@
           </div>
         </v-card-title>
         <v-card-actions>
-          <v-btn flat>Chirps</v-btn>
+          <v-btn flat>Chirrrrps</v-btn>
           <v-btn flat>Following</v-btn>
           <v-btn flat>Followers</v-btn>
         </v-card-actions>
       </v-card>
+      <div v-else>
+        <h1 class="mt-4"> Welcome to Chirpr </h1>
+      </div>
     </v-flex>
     <v-flex xs5>
-      <panel title="Chirps"></panel>
+      <panel title="Chirps">
+        <post/>
+      </panel>
     </v-flex>
     <v-flex xs3>
       <panel title="Who to Follow"></panel>
@@ -29,8 +34,16 @@
 </template>
 
 <script>
+import Post from '@/components/Post.vue'
 export default {
+  data () {
+    return {
 
+    }
+  },
+  components: {
+    Post
+  }
 }
 </script>
 

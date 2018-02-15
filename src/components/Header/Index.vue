@@ -44,7 +44,7 @@ export default {
     async cool () {
       // this.$store.dispatch('greet', )
       this.cool = (await Cool.index()).data
-      alert(this.cool.hi)
+      alert(this.cool)
     }
   }
 }

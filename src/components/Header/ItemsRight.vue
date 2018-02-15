@@ -1,69 +1,108 @@
 <template>
-  <v-toolbar-items style="max-width:400px;">
-    <v-layout row align-center>
-      <v-text-field
-        id="header-search"
-        single-line
-        light
-        hide-details
-        prepend-icon="search"
-        name="header_search"
-        label="Search Chirper"
-        
-      ></v-text-field>
-    </v-layout>
-    <div class="d-flex align-center" style="margin-left: auto">
-      <v-menu offset-y left>
-        <v-btn slot="activator" icon>
-          <v-avatar id="profile" size="38px">
-            <img src="https://randomuser.me/api/portraits/men/1.jpg">
-          </v-avatar>
+  <v-toolbar-items style="max-width:400px; height: 80%;">
+      <v-layout row align-center>
+        <v-text-field
+          id="header-search"
+          single-line
+          light
+          hide-details
+          prepend-icon="search"
+          name="header_search"
+          label="Search Chirper"
+        ></v-text-field>
+      </v-layout>
+        <v-menu v-if="$store.state.isUserLoggedIn" offset-y left>
+          <v-btn slot="activator" icon class="mx-2">
+            <v-avatar id="profile" size="38px">
+              <img src="https://randomuser.me/api/portraits/men/1.jpg">
+            </v-avatar>
+          </v-btn>
+          <v-list>
+            <v-list-tile
+            v-for="item in items"
+            :key="item.title"
+            @click="item.action">
+              <v-list-tile-title>
+                {{ item.title }}
+              </v-list-tile-title>
+            </v-list-tile>
+          </v-list>
+        </v-menu>
+        <v-btn
+          class="lowercase-toolbar-button"
+          round
+          v-if="$store.state.isUserLoggedIn"
+          color="primary"
+          dark
+          >Chirp
         </v-btn>
-        <v-list>
-          <v-list-tile
-          v-for="item in items"
-          :key="item.title"
-          router
-          :to="item.link">
-            <v-list-tile-title>
-              {{ item.title }}
-            </v-list-tile-title>
-          </v-list-tile>
-        </v-list>
-      </v-menu>
+
+      <!-- buttons that show when not logged in -->
       <v-btn
-        class="lowercase-toolbar-button"
         round
+        outline
+        flat
         color="primary"
-        dark
-        >Chirp
+        class="lowercase-toolbar-button primary mx-2"
+        v-if="!$store.state.isUserLoggedIn"
+        :to="{
+          name: 'login'
+        }">
+          Login
       </v-btn>
-    </div>
-  </v-toolbar-items>
+      <v-btn
+        name="register"
+        round
+        outline
+        flat
+        color="primary"
+        class="lowercase-toolbar-button primary mx-2"
+        :to="{
+          name: 'register'
+        }"
+        v-if="!$store.state.isUserLoggedIn">
+          Sign Up
+      </v-btn>
+    </v-toolbar-items>
 </template>
 
 <script>
 export default {
-  data: () => ({
-    items: [
-      {
-        title: 'YourUsername',
-        link: '/profile'
-      },
-      {
-        title: 'Profile',
-        link: '/profile'
-      },
-      {
-        title: 'Log out',
-        link: '/'
-      },
-      {
-        title: 'Night mode',
-        link: '/'
-      }
-    ]
-  })
+  data () {
+    return {
+      items: [
+        {
+          title: 'YourUsername',
+          action: this.visitProfile
+        },
+        {
+          title: 'Profile',
+          action: this.visitProfile
+        },
+        {
+          title: 'Log out',
+          action: this.logout
+        }
+        // {
+        //   title: 'Night mode'
+        // }
+      ]
+    }
+  },
+  methods: {
+    visitProfile () {
+      this.$router.push({
+        name: 'home'
+      })
+    },
+    logout () {
+      this.$store.dispatch('setToken', null)
+      this.$store.dispatch('setUser', null)
+      this.$router.push({
+        name: 'home'
+      })
+    }
+  }
 }
 </script>
 
