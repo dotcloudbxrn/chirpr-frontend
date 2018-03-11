@@ -3,7 +3,6 @@
   <div class="white elevation-2">
     <v-toolbar flat dense class="white">
       <v-toolbar-title>{{title}}</v-toolbar-title>
-      <slot name="action" />
     </v-toolbar>
     <v-divider></v-divider>
     <div class="pl-4 pr-4 pt-2 pb-2">

@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import ChirpService from '@/services/ChirpService'
+// import ChirpService from '@/services/ChirpService'
 export default {
   data () {
     return {
@@ -21,7 +21,7 @@ export default {
     }
   },
   async created () {
-    this.chirps = (await ChirpService.index()).data
+    // this.chirps = (await ChirpService.index()).data
     console.log(this.chirps)
   }
 }

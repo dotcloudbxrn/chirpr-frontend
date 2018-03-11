@@ -7,7 +7,9 @@
           fluid
           grid-list-xl
           class="px-0 pt-0 mt-0">
-          <router-view/>
+          <transition appear name="slide" type="animation">
+            <router-view/>
+          </transition>
         </v-container>
       </main>
     </v-app>
@@ -16,7 +18,7 @@
 
 
 <script>
-import PageHeader from '@/components/Header/Index.vue'
+import PageHeader from '@/components/Globals/Header/Index.vue'
 export default {
   name: 'app',
   components: {
@@ -39,16 +41,31 @@ export default {
   color: red;
 }
 
-.lowercase-toolbar-button {
-  text-transform: none;
-  font-weight: 700;
+
+.slide-enter {
+  opacity: 0;
 }
 
-#main-profile-picture {
-  position: absolute;
-  width: 200px;
-  height: 200px;
-  border: 5px solid #fff;
-  cursor: pointer;
+.slide-enter-active {
+  /* you add forwards so that the element stays in the position and doesn't snap back */
+  animation: 300ms ease forwards;
+  transition: all 300ms;
 }
+
+.slide-leave {
+  display: none;
+}
+
+.slide-leave-active {
+  animation: 300ms ease forwards;
+  transition: all 300ms;
+  opacity: 0;
+  position: absolute;
+}
+
+/* .slide-move {
+  transition: transform 300ms;
+} */
+
+
 </style>

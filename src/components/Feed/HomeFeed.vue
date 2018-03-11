@@ -1,6 +1,6 @@
 <template>
   <v-layout justify-center class="pt-2">
-    <v-flex xs3>
+    <!-- <v-flex xs3>
       <v-card v-if="$store.state.isUserLoggedIn">
         <v-card-media src="https://images.duckduckgo.com/iu/?u=http%3A%2F%2Fwallpapercave.com%2Fwp%2F6rh80gM.jpg&f=1" height="200px"></v-card-media>
         <v-card-title>
@@ -13,7 +13,7 @@
           </div>
         </v-card-title>
         <v-card-actions>
-          <v-btn id="ok-cool" flat>Chirrrrps</v-btn>
+          <v-btn flat>Chirrrrps</v-btn>
           <v-btn flat>Following</v-btn>
           <v-btn flat>Followers</v-btn>
         </v-card-actions>
@@ -21,7 +21,7 @@
       <div v-else>
         <h1 class="mt-4"> Welcome to Chirpr </h1>
       </div>
-    </v-flex>
+    </v-flex> -->
     <v-flex xs5>
       <feed-layout/>
     </v-flex>
@@ -41,12 +41,6 @@ export default {
 </script>
 
 <style scoped>
-
-#ok-cool {
-  font-weight: 700;
-  color: blue;
-}
-
 #hah {
   position: absolute;
   left: 10px;

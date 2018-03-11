@@ -4,6 +4,7 @@ import Home from '@/components/Home/Index.vue'
 import Profile from '@/components/User/Profile.vue'
 import Register from '@/components/User/Register.vue'
 import Login from '@/components/User/Login.vue'
+import NotFound from '@/components/Globals/NotFound/NotFound.vue'
 
 Vue.use(Router)
 export default new Router({
@@ -27,6 +28,10 @@ export default new Router({
       path: '/login',
       name: 'login',
       component: Login
+    },
+    {
+      path: '*',
+      component: NotFound
     }
   ],
   mode: 'history'
