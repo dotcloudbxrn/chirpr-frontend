@@ -43,7 +43,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 #lowercase-toolbar-button {
   text-transform: none;
   font-weight: 700;

@@ -42,7 +42,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 #woah {
   position: absolute;
   width: 200px;

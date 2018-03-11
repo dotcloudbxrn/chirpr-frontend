@@ -38,9 +38,9 @@ export default {
     FeedLayout
   }
 }
-</script>/
+</script>
 
-<style scoped>
+<style>
 #hah {
   position: absolute;
   left: 10px;
