@@ -6,8 +6,7 @@
         <v-container
           fluid
           grid-list-xl
-          class="px-0 pt-0 mt-0"
-        >
+          class="px-0 pt-0 mt-0">
           <router-view/>
         </v-container>
       </main>

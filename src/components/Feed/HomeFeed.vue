@@ -23,9 +23,7 @@
       </div>
     </v-flex>
     <v-flex xs5>
-      <panel title="Chirps">
-        <post/>
-      </panel>
+      <feed-layout/>
     </v-flex>
     <v-flex xs3>
       <panel title="Who to Follow"></panel>
@@ -34,20 +32,15 @@
 </template>
 
 <script>
-import Post from '@/components/Post.vue'
+import FeedLayout from './FeedLayout.vue'
 export default {
-  data () {
-    return {
-
-    }
-  },
   components: {
-    Post
+    FeedLayout
   }
 }
-</script>
+</script>/
 
-<style>
+<style scoped>
 #hah {
   position: absolute;
   left: 10px;
@@ -56,5 +49,15 @@ export default {
   height: 80px;
   border: 3px solid #fff;
   cursor: pointer;
+}
+
+.chirpAuthor {
+  padding: 0px 150px 0px 0px;
+  color: #707172;
+}
+
+.chirpContent {
+  text-align: left;
+  padding: 10px 30px;
 }
 </style>

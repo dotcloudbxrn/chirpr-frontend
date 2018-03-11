@@ -1,31 +1,29 @@
 <template>
   <v-toolbar app dense fixed dark class="white">
-    <v-spacer></v-spacer>
-    <!-- HOME BUTTON -->
+    <v-spacer/>
     <v-toolbar-items style="width:400px;">
-    <!-- <v-layout> -->
       <v-btn flat light color="primary" @click="redirectHome">
-        <v-icon left>account_balance</v-icon>
-        Home
+        <v-icon left>
+          account_balance
+        </v-icon>Home
       </v-btn>
-    <!-- </v-layout> -->
     </v-toolbar-items>
-    <v-spacer></v-spacer>
-    <!-- SITE LOGO -->
-    <span id="icon" class="mx-auto">
-      <v-icon color="primary" large @click="cool">bubble_chart</v-icon>
-      <!-- <v-progress-circular v-else indeterminate color="primary"></v-progress-circular> -->
+    <v-spacer/>
+    <span id="icon">
+      <v-icon color="primary"
+        large
+        @click="redirectHome"
+        >bubble_chart
+      </v-icon>
     </span>
-    <v-spacer></v-spacer>
-    <!-- RIGHT-SIDE PANEL ITEMS -->
+    <v-spacer/>
     <items-right/>
-    <v-spacer></v-spacer>
+    <v-spacer/>
   </v-toolbar>
 </template>
 
 <script>
 import ItemsRight from './ItemsRight.vue'
-import Cool from '@/services/Cool'
 export default {
   data: () => {
     return {
@@ -40,17 +38,12 @@ export default {
       this.$router.push({
         name: 'home'
       })
-    },
-    async cool () {
-      // this.$store.dispatch('greet', )
-      this.cool = (await Cool.index()).data
-      alert(this.cool)
     }
   }
 }
 </script>
 
-<style>
+<style scoped>
 #lowercase-toolbar-button {
   text-transform: none;
   font-weight: 700;

@@ -2,8 +2,8 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '@/components/Home/Index.vue'
 import Profile from '@/components/User/Profile.vue'
-import Register from '@/components/Register.vue'
-import Login from '@/components/Login.vue'
+import Register from '@/components/User/Register.vue'
+import Login from '@/components/User/Login.vue'
 
 Vue.use(Router)
 export default new Router({

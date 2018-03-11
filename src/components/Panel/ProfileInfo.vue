@@ -10,9 +10,6 @@
       </div>
       <slot name="action"/>
     </v-toolbar>
-    <!-- create a divider after every post logic in the for loop. -->
-    <!-- kinda like that -->
-    <!--  <v-divider v-if="index + 1 < items.length"></v-divider> -->
   </div>
 </template>
 
