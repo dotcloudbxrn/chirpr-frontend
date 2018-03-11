@@ -109,9 +109,18 @@ export default {
   /* border-bottom: 1px solid rgb(114, 114, 114);
   border-top: 1px solid rgb(114, 114, 114);   */
 /* */
+.lowercase-toolbar-button {
+  text-transform: none;
+  font-weight: 700;
+}
 
 #profile {
   cursor: pointer;
+}
+
+#icon {
+  cursor: pointer;
+  user-select: none;
 }
 
 </style>

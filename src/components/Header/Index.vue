@@ -44,17 +44,5 @@ export default {
 </script>
 
 <style>
-#lowercase-toolbar-button {
-  text-transform: none;
-  font-weight: 700;
-}
 
-#profile {
-  cursor: pointer;
-}
-
-#icon {
-  cursor: pointer;
-  user-select: none;
-}
 </style>
