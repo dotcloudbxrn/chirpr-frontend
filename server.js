@@ -4,10 +4,11 @@ var serveStatic = require('serve-static')
 var history = require('connect-history-api-fallback')
 
 let app = express()
+app.use(history({verbose: true}))
 app.use(serveStatic(path.join(__dirname, '/dist')))
 console.log(path.join(__dirname, '/dist'))
 
 var port = process.env.PORT || 5000
-app.use(history()).listen(port)
+app.listen(port)
 
 console.log(`server started on ${port}`)
