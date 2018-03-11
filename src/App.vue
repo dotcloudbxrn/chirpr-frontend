@@ -43,4 +43,12 @@ export default {
   text-transform: none;
   font-weight: 700;
 }
+
+#main-profile-picture {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border: 5px solid #fff;
+  cursor: pointer;
+}
 </style>

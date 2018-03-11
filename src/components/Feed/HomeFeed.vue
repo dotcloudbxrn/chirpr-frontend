@@ -13,7 +13,7 @@
           </div>
         </v-card-title>
         <v-card-actions>
-          <v-btn flat>Chirrrrps</v-btn>
+          <v-btn id="ok-cool" flat>Chirrrrps</v-btn>
           <v-btn flat>Following</v-btn>
           <v-btn flat>Followers</v-btn>
         </v-card-actions>
@@ -40,7 +40,13 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+
+#ok-cool {
+  font-weight: 700;
+  color: blue;
+}
+
 #hah {
   position: absolute;
   left: 10px;

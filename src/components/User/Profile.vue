@@ -9,7 +9,7 @@
         <v-toolbar class="elevation-2">
           <v-spacer></v-spacer>
           <v-avatar>
-            <img id="woah" src="https://randomuser.me/api/portraits/men/1.jpg">
+            <img id="main-profile-picture" src="https://randomuser.me/api/portraits/men/1.jpg">
           </v-avatar>
           <v-spacer></v-spacer>
           <v-btn flat>Chirps</v-btn>
@@ -43,11 +43,5 @@ export default {
 </script>
 
 <style>
-#woah {
-  position: absolute;
-  width: 200px;
-  height: 200px;
-  border: 5px solid #fff;
-  cursor: pointer;
-}
+
 </style>
