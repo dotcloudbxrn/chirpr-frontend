@@ -17,14 +17,11 @@
 <script>
 export default {
   props: [
-    // will be passed from any component that is using
-    // this one
     'title'
   ]
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 
 </style>
