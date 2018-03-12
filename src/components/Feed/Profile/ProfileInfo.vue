@@ -11,13 +11,3 @@
     </v-toolbar>
   </v-flex>
 </template>
-
-<script>
-export default {
-
-}
-</script>
-
-<style scoped>
-
-</style>

@@ -42,7 +42,7 @@
 </template>
 
 <script>
-import Feed from '@/components/Feed/ProfileFeed.vue'
+import Feed from '@/components/Feed/MainLayout.vue'
 export default {
   computed: {
     imageHeight () {

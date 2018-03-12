@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <v-app>
+    <v-app id="styleMe">
       <page-header/>
       <main>
         <v-container
@@ -62,10 +62,5 @@ export default {
   opacity: 0;
   position: absolute;
 }
-
-/* .slide-move {
-  transition: transform 300ms;
-} */
-
 
 </style>

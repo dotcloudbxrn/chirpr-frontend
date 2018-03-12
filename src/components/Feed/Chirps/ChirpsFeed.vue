@@ -22,7 +22,7 @@ export default {
   },
   async created () {
     // this.chirps = (await ChirpService.index()).data
-    console.log(this.chirps)
+    // console.log(this.chirps)
   }
 }
 </script>
