@@ -9,7 +9,7 @@
         hide-details
         prepend-icon="search"
         name="header_search"
-        label="Search Chirper"
+        label="Search Chirpr"
       ></v-text-field>
     </v-layout>
     <v-menu v-if="$store.state.isUserLoggedIn" offset-y left>
@@ -35,6 +35,7 @@
       v-if="$store.state.isUserLoggedIn"
       color="primary"
       dark
+      @click.stop="openChirp"
       >Chirp
     </v-btn>
     <!-- items that show when not logged in -->
@@ -98,6 +99,9 @@ export default {
       this.$router.push({
         name: 'home'
       })
+    },
+    openChirp () {
+      this.$store.dispatch('openChirp')
     }
   }
 }

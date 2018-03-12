@@ -9,7 +9,8 @@ export default new Vuex.Store({
   state: {
     token: null,
     user: null,
-    isUserLoggedIn: false
+    isUserLoggedIn: false,
+    isChirping: false
   },
   plugins: [
     createPersistedState()
@@ -25,6 +26,12 @@ export default new Vuex.Store({
     },
     setUser (state, user) {
       state.user = user
+    },
+    openChirp (state) {
+      state.isChirping = true
+    },
+    stopChirping (state, ) {
+      state.isChirping = false
     }
   },
   actions: {
@@ -33,6 +40,12 @@ export default new Vuex.Store({
     },
     setUser ({commit}, user) {
       commit('setUser', user)
+    },
+    openChirp ({commit}) {
+      commit('openChirp')
+    },
+    stopChirping ({commit} ) {
+      commit('stopChirping')
     }
   }
 })

@@ -9,7 +9,7 @@
       </v-btn>
     </v-toolbar-items>
     <v-spacer/>
-    <span id="icon">
+    <span id="logo">
       <v-icon color="primary"
         large
         @click="redirectHome"
@@ -44,5 +44,7 @@ export default {
 </script>
 
 <style>
-
+#logo {
+  cursor: pointer;
+}
 </style>
