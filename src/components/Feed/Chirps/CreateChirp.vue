@@ -1,18 +1,18 @@
 <template>
-	<v-dialog :value=showDialog max-width="500px" @input="handleCancel">
+	<v-dialog persistent :value=showDialog max-width="500px">
 		<v-card>
-			<v-card-title style="font-size: 2rem">
-				Chirp!
-			</v-card-title>
 			<v-card-text>
-				<v-select
-					:items="select"
-					label="A Select List"
-					item-value="text"
-				></v-select>
+				<v-text-field
+          name="chirpText"
+					v-model="chirp.textContent"
+          label="Chirp away..."
+          multi-line
+        ></v-text-field>
 			</v-card-text>
 			<v-card-actions>
-				<v-btn color="primary" flat @click.stop="handleCancel">Close</v-btn>
+				<v-btn color="error" flat @click.stop="handleCancel">Close</v-btn>
+				<v-spacer></v-spacer>
+				<v-btn color="success" flat @click.stop="sendChirp">Chirp</v-btn>
 			</v-card-actions>
 		</v-card>
 	</v-dialog>
@@ -23,15 +23,19 @@ export default {
 	props: ['showDialog'],
 	data () {
 		return {
-			select: [
-        { text: 'Example 1' },
-        { text: 'Example 2' }
-      ]
+			chirp: {
+				textContent: ''
+			}
 		}
 	},
 	methods: {
 		handleCancel () {
 			this.$store.dispatch('stopChirping')
+		},
+		sendChirp () {
+			this.$store.dispatch('stopChirping')
+			alert(this.chirp.textContent)			
+			this.chirp.textContent = ''
 		}
 	}
 }
