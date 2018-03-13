@@ -22,6 +22,9 @@
 </template>
 
 <script>
+import ChirpService from '@/services/ChirpService'
+import ChirpsFeedVue from './ChirpsFeed.vue';
+
 export default {
 	props: ['showDialog'],
 	data () {
@@ -35,10 +38,16 @@ export default {
 		handleCancel () {
 			this.$store.dispatch('stopChirping')
 		},
-		sendChirp () {
+		async sendChirp () {
+			let payload = {
+				text: this.chirp.textContent,
+				token: this.$store.state.token
+			}
+			ChirpService.createChirp(payload)
 			this.$store.dispatch('stopChirping')
-			alert(this.chirp.textContent)			
 			this.chirp.textContent = ''
+			this.$store.dispatch('triggerFUpdate')
+			// this.$router.push('profile')
 		}
 	}
 }

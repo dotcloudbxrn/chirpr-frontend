@@ -21,12 +21,12 @@ import ChirpsFeed from './Chirps/ChirpsFeed.vue'
 import ProfileInfo from './Profile/ProfileInfo.vue'
 import ProfileCard from './Profile/ProfileCard.vue'
 import CreateChirp from './Chirps/CreateChirp.vue'
-
+import {mapGetters} from 'vuex'
 
 export default {
   data () {
     return {
-      userData: null
+      userData: []
     }
   },
   components: {
@@ -38,7 +38,7 @@ export default {
   methods: {
 		stopChirping () {
 			this.$store.dispatch('stopChirping')
-		}
+    }
   },
   computed: {
     isChirping () {

@@ -10,7 +10,8 @@ export default new Vuex.Store({
     token: null,
     user: null,
     isUserLoggedIn: false,
-    isChirping: false
+    isChirping: false,
+    feedNeedsUpdate: false
   },
   plugins: [
     createPersistedState()
@@ -30,8 +31,11 @@ export default new Vuex.Store({
     openChirp (state) {
       state.isChirping = true
     },
-    stopChirping (state, ) {
+    stopChirping (state) {
       state.isChirping = false
+    },
+    triggerFUpdate (state) {
+      state.feedNeedsUpdate = !state.feedNeedsUpdate
     }
   },
   actions: {
@@ -46,6 +50,9 @@ export default new Vuex.Store({
     },
     stopChirping ({commit} ) {
       commit('stopChirping')
+    },
+    triggerFUpdate({commit}) {
+      commit('triggerFUpdate')
     }
   },
   getters: {
