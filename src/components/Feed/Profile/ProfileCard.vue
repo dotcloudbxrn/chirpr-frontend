@@ -2,13 +2,13 @@
 	<div>
 		<v-card v-if="$store.state.isUserLoggedIn">
 			<v-card-media src="https://images.duckduckgo.com/iu/?u=http%3A%2F%2Fwallpapercave.com%2Fwp%2F6rh80gM.jpg&f=1" height="200px"></v-card-media>
-			<v-card-title>
-				<v-avatar>
-					<img id="hah" src="https://randomuser.me/api/portraits/men/1.jpg">
+			<v-card-title class="pa-2" justify-space-between>
+				<v-avatar id="avatar-holder">
+					<img id="avatar-image" src="https://randomuser.me/api/portraits/men/1.jpg">
 				</v-avatar>
-				<div class="pl-4">
-					<h3 class="headline">Real Name</h3>
-					<span class="grey--text">@userName</span>
+				<div class="pl-5">
+					<h3>{{user.firstName}} {{user.lastName}}</h3>
+					<span class="grey--text">@{{user.username}}</span>
 				</div>
 			</v-card-title>
 			<v-card-actions>
@@ -23,11 +23,21 @@
 	</div>
 </template>
 
+<script>
+export default {
+	props: ['user']
+}
+</script>
+
 <style scoped>
-#hah {
-  position: absolute;
-  left: 10px;
-  bottom: 100px;
+#avatar-holder {
+	display: flex;
+  align-self: flex-end;
+}
+#avatar-image {
+	position: relative;
+	bottom: 40px;
+	left: 20px;
   width: 80px;
   height: 80px;
   border: 3px solid #fff;

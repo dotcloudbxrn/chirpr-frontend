@@ -2,10 +2,10 @@
   <v-layout justify-center class="pt-2">
     <create-chirp :showDialog="isChirping"/>
     <v-flex xs3 v-if="this.$route.name === 'home'">
-      <profile-card></profile-card>
+      <profile-card :user="userData"></profile-card>
     </v-flex>
     <v-flex xs3 v-if="this.$route.name === 'profile'">
-      <profile-info></profile-info>
+      <profile-info :user="userData"></profile-info>
     </v-flex>
     <v-flex xs5>
       <chirps-feed></chirps-feed>
@@ -24,6 +24,11 @@ import CreateChirp from './Chirps/CreateChirp.vue'
 
 
 export default {
+  data () {
+    return {
+      userData: null
+    }
+  },
   components: {
     ProfileInfo,
     ChirpsFeed,
@@ -39,6 +44,9 @@ export default {
     isChirping () {
       return this.$store.state.isChirping
     }
+  },
+  created () {
+    this.userData = this.$store.getters.fetchUserData
   }
 }
 </script>

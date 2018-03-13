@@ -1,18 +1,21 @@
 <template>
-	<v-dialog persistent :value=showDialog max-width="500px">
+	<v-dialog :value=showDialog max-width="500px" @input="handleCancel">
 		<v-card>
 			<v-card-text>
+				<v-card-title class="pa-0">
+					<span class="chirp-title">Compose new Chirp</span>
+					<span><v-icon @click.stop="handleCancel" id="close-button">close</v-icon></span>
+				</v-card-title>
 				<v-text-field
           name="chirpText"
 					v-model="chirp.textContent"
-          label="Chirp away..."
+          label="A little bird told me..."
           multi-line
         ></v-text-field>
 			</v-card-text>
 			<v-card-actions>
-				<v-btn color="error" flat @click.stop="handleCancel">Close</v-btn>
 				<v-spacer></v-spacer>
-				<v-btn color="success" flat @click.stop="sendChirp">Chirp</v-btn>
+				<v-btn color="primary" flat @click.stop="sendChirp">Chirp</v-btn>
 			</v-card-actions>
 		</v-card>
 	</v-dialog>
@@ -40,3 +43,17 @@ export default {
 	}
 }
 </script>
+
+<style>
+.chirp-title {
+	display: inline-block;
+	font-size: 1.3rem;
+	font-weight: 600;
+	margin: 0 auto;
+}
+
+#close-button {
+	color: #230006;
+	cursor: pointer;
+}
+</style>

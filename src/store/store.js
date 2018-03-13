@@ -47,5 +47,8 @@ export default new Vuex.Store({
     stopChirping ({commit} ) {
       commit('stopChirping')
     }
+  },
+  getters: {
+    fetchUserData: state => state.user
   }
 })
