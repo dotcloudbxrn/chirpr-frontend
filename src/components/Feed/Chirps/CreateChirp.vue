@@ -24,6 +24,7 @@
 <script>
 import ChirpService from '@/services/ChirpService'
 import ChirpsFeedVue from './ChirpsFeed.vue';
+import {eventBus} from '@/main'
 
 export default {
 	props: ['showDialog'],
@@ -47,6 +48,7 @@ export default {
 			this.$store.dispatch('stopChirping')
 			this.chirp.textContent = ''
 			this.$store.dispatch('triggerFUpdate')
+			eventBus.$emit('newChirp')
 			// this.$router.push('profile')
 		}
 	}

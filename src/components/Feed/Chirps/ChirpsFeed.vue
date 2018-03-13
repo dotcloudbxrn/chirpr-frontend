@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import {mapState} from 'vuex'
+import {eventBus} from '@/main'
 import ChirpService from '@/services/ChirpService'
 export default {
   data () {
@@ -21,13 +21,12 @@ export default {
       chirps: []
     }
   },
-  async mounted () {
+  async created () {
     this.chirps = (await ChirpService.index()).data
-    console.log(this.$store.state)
-  },
-  mounted () {
-    console.log('done')
-    console.log('winning is', this.feedNeedsUpdate)
+    eventBus.$on('newChirp', async () => {
+      this.chirps = (await ChirpService.index()).data
+      console.log(this.chirps)
+    })
   }
 }
 </script>

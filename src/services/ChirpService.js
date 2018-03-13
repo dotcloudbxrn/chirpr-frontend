@@ -5,6 +5,10 @@ export default {
     return Api().get('chirps')
   },
   createChirp (payload) {
+    if (!payload.text || !payload.token) {
+      alert('Please... Do not')
+      return
+    }
     let req = Api()
     req.defaults.headers.common['Authorization'] = `Bearer ${payload.token}`
     req.post('/chirp/create', {
