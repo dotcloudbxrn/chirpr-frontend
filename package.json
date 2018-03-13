@@ -8,13 +8,12 @@
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start": "node server.js",
     "lint": "eslint --ext .js,.vue src",
-    "build": "node build/build.js",
-    "postinstall": "npm install express"
+    "build": "node build/build.js"
   },
   "dependencies": {
     "axios": "^0.17.1",
     "connect-history-api-fallback": "^1.5.0",
-    "express": "^4.16.2",
+    "express": "^4.16.3",
     "lodash": "^4.17.4",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1",
