@@ -6,7 +6,8 @@
         <v-container
           fluid
           grid-list-xl
-          class="px-0 pt-0 mt-0">
+          class="px-0 pt-0 mt-0"
+          id="main-app-view">
           <transition appear name="slide" type="animation">
             <router-view/>
           </transition>
@@ -35,6 +36,10 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 48px;
+  min-width: 700px;
+}
+
+#main-app-view {
   min-width: 700px;
 }
 .danger-alert {

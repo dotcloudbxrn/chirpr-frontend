@@ -4,18 +4,23 @@
       <v-toolbar-title> Chirps </v-toolbar-title>
     </v-toolbar>
     <v-divider></v-divider>
-    <div v-for="(chirp, index) in chirps" :key="chirp._id" class="px-5 my-3">
-      <p class="chirpAuthor"> {{chirp.creator.firstname}} {{chirp.creator.lastname}} @{{chirp.creator.username }}</p>
-      <p class="chirpContent"> {{chirp.chirpContent}} </p>
-      <v-divider v-if="index + 1 < chirps.length"></v-divider>
-    </div>
+    <chirp v-for="(chirp, index) in chirps"
+          :key="chirp._id"
+          class="px-4 my-2"
+          :index="index"
+          :chirp="chirp"
+          :length="chirps.length"/>
   </div>
 </template>
 
 <script>
 import {eventBus} from '@/main'
 import ChirpService from '@/services/ChirpService'
+import Chirp from './Chirp.vue'
 export default {
+  components: {
+    Chirp
+  },
   data () {
     return {
       chirps: []
@@ -30,16 +35,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-.chirpAuthor {
-  padding: 0px 150px 0px 0px;
-  color: #707172;
-}
-
-.chirpContent {
-  text-align: left;
-  overflow-wrap: break-word;
-  padding: 10px 30px;
-}
-</style>

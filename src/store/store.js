@@ -14,7 +14,7 @@ export default new Vuex.Store({
     feedNeedsUpdate: false
   },
   plugins: [
-    createPersistedState()
+    // createPersistedState()
   ],
   mutations: {
     setToken (state, token) {
