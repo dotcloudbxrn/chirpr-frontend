@@ -46,7 +46,6 @@ export default {
   color: red;
 }
 
-
 .slide-enter {
   opacity: 0;
 }

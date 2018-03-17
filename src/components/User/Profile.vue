@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <v-flex>
     <v-flex xs12 class="pt-0">
       <v-card>
         <v-card-media src="https://images.duckduckgo.com/iu/?u=http%3A%2F%2Fwallpapercave.com%2Fwp%2F6rh80gM.jpg&f=1" height="400px">
@@ -12,18 +12,21 @@
         </v-avatar>
         <v-spacer></v-spacer>
         <v-toolbar-items>
-          <v-btn flat>
-            <span class="profile_action_button">Chirps</span>
-            <span></span>
+          <v-btn flat class="pButton">
+            <div class="profile_action_button_label">Chirps</div>
+            <div class="profile_action_button_count">23</div>
           </v-btn>
-          <v-btn flat>
-            <span class="profile_action_button">Following</span>            
+          <v-btn flat class="pButton">
+            <div class="profile_action_button_label">Following</div>
+            <div class="profile_action_button_count">10</div>                 
           </v-btn>
-          <v-btn flat>
-            <span class="profile_action_button">Followers</span>
+          <v-btn flat class="pButton">
+            <div class="profile_action_button_label">Followers</div>
+            <div class="profile_action_button_count">299</div>            
           </v-btn>
-          <v-btn flat>
-            <span class="profile_action_button">Likes</span>            
+          <v-btn flat class="pButton">
+            <div class="profile_action_button_label">Likes</div>
+            <div class="profile_action_button_count">27</div>            
           </v-btn>
         </v-toolbar-items>
         <v-spacer></v-spacer>
@@ -39,7 +42,7 @@
       </v-toolbar>
     </v-flex>
     <feed></feed>
-  </div>
+  </v-flex>
 </template>
 
 <script>
@@ -65,6 +68,21 @@ export default {
 </script>
 
 <style>
+
+.pButton > * {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile_action_button_label {
+  font-size: .7rem;
+}
+
+.profile_action_button_count {
+  font-size: 1.4rem;
+}
+
+
 #main-profile-picture {
   transition: all 100ms ease;
   display: flex;

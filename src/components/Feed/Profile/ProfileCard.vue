@@ -11,10 +11,12 @@
 					<span class="grey--text">@{{user.username}}</span>
 				</div>
 			</v-card-title>
-			<v-card-actions>
-				<v-btn flat>Chirrrrps</v-btn>
-				<v-btn flat>Following</v-btn>
-				<v-btn flat>Followers</v-btn>
+			<v-card-actions class="pa-3">
+				<v-layout wrap justify-space-around>
+					<v-btn flat >Chirrrrps</v-btn>
+					<v-btn flat >Following</v-btn>
+					<v-btn flat >Followers</v-btn>
+				</v-layout>
 			</v-card-actions>
 		</v-card>
 		<div v-else>

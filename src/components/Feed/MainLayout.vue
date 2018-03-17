@@ -1,10 +1,10 @@
 <template>
   <v-layout justify-center class="pt-2">
     <create-chirp :showDialog="isChirping"/>
-    <v-flex xs3 v-if="this.$route.name === 'home'">
+    <v-flex xs3 v-if="this.$route.name === 'home'" class="profileCard">
       <profile-card :user="userData"></profile-card>
     </v-flex>
-    <v-flex xs3 v-if="this.$route.name === 'profile'">
+    <v-flex xs3 v-if="this.$route.name === 'profile'" class="profileCard">
       <profile-info :user="userData"></profile-info>
     </v-flex>
     <v-flex xs5>
@@ -26,8 +26,11 @@ import {mapGetters} from 'vuex'
 export default {
   data () {
     return {
-      userData: []
+      userData: {}
     }
+  },
+  created () {
+    this.userData = this.$store.getters.fetchUserData
   },
   components: {
     ProfileInfo,
@@ -44,9 +47,12 @@ export default {
     isChirping () {
       return this.$store.state.isChirping
     }
-  },
-  created () {
-    this.userData = this.$store.getters.fetchUserData
   }
 }
 </script>
+
+<style scoped>
+.profileCard {
+  min-width: 150px;
+}
+</style>
