@@ -11,11 +11,11 @@
 					<span class="grey--text">@{{user.username}}</span>
 				</div>
 			</v-card-title>
-			<v-card-actions class="pa-3">
-				<v-layout wrap justify-space-around>
-					<v-btn flat >Chirrrrps</v-btn>
-					<v-btn flat >Following</v-btn>
-					<v-btn flat >Followers</v-btn>
+			<v-card-actions>
+				<v-layout wrap justify-space-around class="mb-1">
+					<v-btn flat small>Chirrrrps</v-btn>
+					<v-btn flat small>Following</v-btn>
+					<v-btn flat small>Followers</v-btn>
 				</v-layout>
 			</v-card-actions>
 		</v-card>
@@ -31,7 +31,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 #avatar-holder {
 	display: flex;
   align-self: flex-end;

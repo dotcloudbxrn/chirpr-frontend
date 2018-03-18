@@ -1,12 +1,16 @@
 <template>
 	<v-flex>
-		<div class="exp">
-			<v-avatar size="46px" @mouseover="underlineProfile" @mouseout="underlineProfile">
-				<!-- change based on profile -->
-				<img class="profilePic" src="https://randomuser.me/api/portraits/men/1.jpg">
-			</v-avatar>
-			<span class="chirpAuthor" @mouseover="underlineProfile" @mouseout="underlineProfile"><strong>{{chirp.creator.profile.firstName}} {{chirp.creator.profile.lastName}}</strong> @{{chirp.creator.username }}</span>
-		</div>	
+		<hover-card>
+			<div class="exp" slot="profileLink">
+				<div style="text-align: left;">
+					<v-avatar size="46px" @mouseover="underlineProfile" @mouseout="underlineProfile">
+						<!-- change based on profile -->
+						<img class="profilePic" src="https://randomuser.me/api/portraits/men/1.jpg">
+					</v-avatar>
+					<span class="chirpAuthor" @mouseover="underlineProfile" @mouseout="underlineProfile"><strong>{{chirp.creator.profile.firstName}} {{chirp.creator.profile.lastName}}</strong> @{{chirp.creator.username }}</span>
+				</div>
+			</div>
+		</hover-card>
 		<p class="chirpContent"> {{chirp.chirpContent}} </p>
 		<v-layout justify-space-around pb-2>
 				<v-btn flat icon color="indigo lighten-2" dark>
@@ -30,12 +34,13 @@
 </template>
 
 
-<script scoped>
+<script>
+import HoverCard from './HoverCard.vue'
 export default {
-	props: ['index', 'chirp', 'length'],
-	mounted () {
-		// console.log(this.chirp)
+	components: {
+		HoverCard
 	},
+	props: ['index', 'chirp', 'length'],
 	methods: {
 		underlineProfile (el) {
 			if (el.target.className === 'chirpAuthor') return
