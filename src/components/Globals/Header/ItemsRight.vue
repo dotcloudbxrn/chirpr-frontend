@@ -10,6 +10,7 @@
         prepend-icon="search"
         name="header_search"
         label="Search Chirpr"
+        class="hidden-sm-and-down"
       ></v-text-field>
     </v-layout>
     <v-menu v-if="$store.state.isUserLoggedIn" offset-y left>

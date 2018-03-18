@@ -19,14 +19,39 @@
 						<span class="grey--text">@crash</span>
 					</div>
 				</v-card-title>
-							<v-card-text>
-								This is where a person's biography will be displayed
-							</v-card-text>
-				<v-card-actions class="">
+				<v-card-text style="max-width: 300px;word-break; break-word">
+					THIS IS AN EXAMPLE
+					OF A VERY 
+					BIG BIOGRAPHY
+					STYLED IN A WRONG
+					WAYTHIS IS AN EXAMPLE
+					OF A VERY 
+					BIG BIOGRAPHY
+					STYLED IN A WRONG
+					WAYTHIS IS AN EXAMPLE
+					OF A VERY 
+					BIG BIOGRAPHY
+					STYLED IN A WRONG
+					WAYTHIS IS AN EXAMPLE
+					OF A VERY 
+					BIG BIOGRAPHY
+					STYLED IN A WRONG
+					WAY
+				</v-card-text>
+				<v-card-actions class="mt-2 mb-3">
 					<v-layout wrap justify-space-around>
-						<v-btn flat small>Chirrrrps</v-btn>
-						<v-btn flat small>Following</v-btn>
-						<v-btn flat small>Followers</v-btn>
+						<v-btn flat :ripple="false" class="pButton">
+							<div class="profile_action_button_label">Chirps</div>
+							<div class="profile_action_button_count">30</div>
+						</v-btn>
+						<v-btn flat :ripple="false" class="pButton">
+							<div class="profile_action_button_label">Chirps</div>
+							<div class="profile_action_button_count">30</div>
+						</v-btn>
+						<v-btn flat :ripple="false" class="pButton">
+							<div class="profile_action_button_label">Chirps</div>
+							<div class="profile_action_button_count">30</div>
+						</v-btn>
 					</v-layout>
 				</v-card-actions>
 			</v-card>
@@ -44,7 +69,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 #avatar-holder {
 	display: flex;
   align-self: flex-end;
@@ -58,4 +83,22 @@ export default {
   border: 3px solid #fff;
   cursor: pointer;
 }
+.pButton:hover .btn__content:before {
+  background-color: #fafafa;
+}
+
+.pButton > * {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile_action_button_label {
+  font-size: .7rem;
+}
+
+.profile_action_button_count {
+  color: #1976D2;
+  font-size: 1.4rem;
+}
+
 </style>

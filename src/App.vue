@@ -1,18 +1,20 @@
 <template>
   <div id="app">
     <v-app id="styleMe">
+      <v-content>
       <page-header/>
-      <main>
-        <v-container
-          fluid
-          grid-list-xl
-          class="px-0 pt-0 mt-0"
-          id="main-app-view">
-          <transition appear name="slide" type="animation">
-            <router-view/>
-          </transition>
-        </v-container>
-      </main>
+        <main>
+          <v-container
+            fluid
+            grid-list-xl
+            class="px-0 pt-0 mt-0"
+            id="main-app-view">
+            <transition appear name="slide" type="animation">
+              <router-view/>
+            </transition>
+          </v-container>
+        </main>
+      </v-content>
     </v-app>
   </div>
 </template>
@@ -34,7 +36,6 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
-  margin-top: 48px;
   min-width: 700px;
 }
 

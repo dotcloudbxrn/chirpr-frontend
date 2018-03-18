@@ -6,15 +6,13 @@ import Vuetify from 'vuetify'
 import router from './router'
 import store from './store/store'
 import 'vuetify/dist/vuetify.min.css'
-
 import Panel from '@/components/Globals/Panel/Panel.vue'
+
 
 Vue.use(Vuetify)
 
 Vue.config.productionTip = false
-
 Vue.component('panel', Panel)
-
 export const eventBus = new Vue({})
 
 /* eslint-disable no-new */

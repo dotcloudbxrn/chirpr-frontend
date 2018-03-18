@@ -13,9 +13,18 @@
 			</v-card-title>
 			<v-card-actions>
 				<v-layout wrap justify-space-around class="mb-1">
-					<v-btn flat small>Chirrrrps</v-btn>
-					<v-btn flat small>Following</v-btn>
-					<v-btn flat small>Followers</v-btn>
+						<v-btn flat class="pButton">
+							<div class="profile_action_button_label">Chirps</div>
+							<div class="profile_action_button_count">30</div>
+						</v-btn>
+						<v-btn flat class="pButton">
+							<div class="profile_action_button_label">Chirps</div>
+							<div class="profile_action_button_count">30</div>
+						</v-btn>
+						<v-btn flat class="pButton">
+							<div class="profile_action_button_label">Chirps</div>
+							<div class="profile_action_button_count">30</div>
+						</v-btn>
 				</v-layout>
 			</v-card-actions>
 		</v-card>

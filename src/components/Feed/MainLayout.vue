@@ -1,18 +1,26 @@
 <template>
   <v-layout justify-center class="pt-2">
     <create-chirp :showDialog="isChirping"/>
-    <v-flex xs3 v-if="this.$route.name === 'home'" class="profileCard">
-      <profile-card :user="userData"></profile-card>
-    </v-flex>
-    <v-flex xs3 v-if="this.$route.name === 'profile'" class="profileCard">
-      <profile-info :user="userData"></profile-info>
-    </v-flex>
-    <v-flex xs5>
-      <chirps-feed></chirps-feed>
-    </v-flex>
-    <v-flex xs3>
-      <panel title="Who to Follow"></panel>
-    </v-flex>
+      <template v-if="this.$vuetify.breakpoint.mdAndUp">
+        <v-flex xs3 v-if="this.$route.name === 'home'" class="profileCard">
+          <profile-card :user="userData"></profile-card>
+        </v-flex>
+        <v-flex xs3 v-if="this.$route.name === 'profile'" class="profileCard">
+          <profile-info :user="userData"></profile-info>
+        </v-flex>
+        <!-- it's here that I need to fix things if this is to become mobile one day -->
+        <v-flex xs5>
+          <chirps-feed></chirps-feed>
+        </v-flex>
+        <v-flex xs3>
+          <panel title="Who to Follow"></panel>
+        </v-flex>
+      </template>
+      <template v-else>
+        <v-flex xs12>
+          <chirps-feed></chirps-feed>          
+        </v-flex>
+      </template>
   </v-layout>
 </template>
 
@@ -31,6 +39,7 @@ export default {
   },
   created () {
     this.userData = this.$store.getters.fetchUserData
+    console.log(this.$vuetify.breakpoint)
   },
   components: {
     ProfileInfo,

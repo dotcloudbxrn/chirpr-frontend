@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div style="text-align: center;">
 		<br>
 		<br>
 	<h1>Whoops, a 404, the resource you're looking for isn't here.</h1>

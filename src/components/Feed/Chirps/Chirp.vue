@@ -7,7 +7,10 @@
 						<!-- change based on profile -->
 						<img class="profilePic" src="https://randomuser.me/api/portraits/men/1.jpg">
 					</v-avatar>
-					<span class="chirpAuthor" @mouseover="underlineProfile" @mouseout="underlineProfile"><strong>{{chirp.creator.profile.firstName}} {{chirp.creator.profile.lastName}}</strong> @{{chirp.creator.username }}</span>
+					<span class="chirpAuthor" @mouseover="underlineProfile" @mouseout="underlineProfile">
+						<strong>{{chirp.creator.profile.firstName}} {{chirp.creator.profile.lastName}}</strong> 
+						@{{chirp.creator.username }}
+					</span>
 				</div>
 			</div>
 		</hover-card>
@@ -64,7 +67,6 @@ export default {
 
 
 .chirpAuthor {
-  /* padding: 0px 150px 0px 0px; */
   color: #707172;
 }
 

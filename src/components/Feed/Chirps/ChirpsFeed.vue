@@ -30,7 +30,6 @@ export default {
     this.chirps = (await ChirpService.index()).data
     eventBus.$on('newChirp', async () => {
       this.chirps = (await ChirpService.index()).data
-      console.log(this.chirps)
     })
   }
 }

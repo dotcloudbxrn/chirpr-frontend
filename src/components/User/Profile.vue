@@ -56,9 +56,6 @@ export default {
         case 'md': return `200px`
         default: return `200px`
       }
-    },
-    getUserDetails () {
-
     }
   },
   components: {
@@ -68,6 +65,9 @@ export default {
 </script>
 
 <style>
+.pButton:hover .btn__content:before {
+  background-color: #fafafa;
+}
 
 .pButton > * {
   display: flex;
@@ -79,6 +79,7 @@ export default {
 }
 
 .profile_action_button_count {
+  color: #1976D2;
   font-size: 1.4rem;
 }
 
