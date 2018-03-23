@@ -6,7 +6,7 @@
           <v-text-field
             type="text"
             name="username"
-            label="Your username:"
+            label="Choose your @username?"
             v-model="username"
             :rules="[required]"
           ></v-text-field>

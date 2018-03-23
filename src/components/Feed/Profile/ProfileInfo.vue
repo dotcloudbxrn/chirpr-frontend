@@ -5,7 +5,7 @@
         <h3 class="headline">{{user.firstName}} {{user.lastName}}</h3>
         <div class="grey--text">
           <div>@{{user.username}}</div>
-          <div>Bio</div>
+          <div>{{user.bio}}</div>
         </div>
       </div>
     </v-toolbar>
@@ -13,7 +13,17 @@
 </template>
 
 <script>
+// component should receive information about a user
+// based on the url - search by username
+import UserService from '@/services/UserService'
 export default {
-  props: ['user']
+  data () {
+    return {
+      user: {}
+    }
+  },
+  async created () {
+    this.user = (await UserService.getUserDetails(this.$route.params.id)).data
+  }
 }
 </script>

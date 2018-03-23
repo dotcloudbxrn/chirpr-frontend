@@ -1,21 +1,34 @@
 <template>
 	<v-flex>
-		<hover-card>
+		<hover-card :creator="chirp.creator">
 			<div class="exp" slot="profileLink">
 				<div style="text-align: left;">
-					<v-avatar size="46px" @mouseover="underlineProfile" @mouseout="underlineProfile">
+					<v-avatar size="46px" 
+						@mouseover="underlineProfile"
+						@mouseout="underlineProfile"
+						@click="navigateToProfile"
+						:data-username="chirp.creator.username">
 						<!-- change based on profile -->
-						<img class="profilePic" src="https://randomuser.me/api/portraits/men/1.jpg">
+						<!-- completely against DRY principles, but facing time issues -->
+						<img class="profilePic"
+							:src="chirp.creator.avatar"
+							:data-username="chirp.creator.username">
 					</v-avatar>
-					<span class="chirpAuthor" @mouseover="underlineProfile" @mouseout="underlineProfile">
-						<strong>{{chirp.creator.profile.firstName}} {{chirp.creator.profile.lastName}}</strong> 
+					<span
+						class="chirpAuthor"
+						@mouseover="underlineProfile"
+						@mouseout="underlineProfile"
+						@click="navigateToProfile"
+						:data-username="chirp.creator.username">
+						<strong
+						:data-username="chirp.creator.username">{{chirp.creator.firstName}} {{chirp.creator.lastName}}</strong> 
 						@{{chirp.creator.username }}
 					</span>
 				</div>
 			</div>
 		</hover-card>
 		<p class="chirpContent"> {{chirp.chirpContent}} </p>
-		<v-layout justify-space-around pb-2>
+		<v-layout wrap justify-space-around pb-2>
 				<v-btn flat icon color="indigo lighten-2" dark>
 					<v-icon dark>autorenew</v-icon>
 				</v-btn>
@@ -48,6 +61,15 @@ export default {
 		underlineProfile (el) {
 			if (el.target.className === 'chirpAuthor') return
 			el.target.parentElement.parentElement.lastChild.classList.toggle('underlined')
+		},
+		navigateToProfile (el) {
+			let username = el.target.dataset.username
+			this.$router.push({
+				name: 'profile',
+				params: {
+					id: username
+				}
+			})
 		}
 	}
 }

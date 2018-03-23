@@ -1,10 +1,14 @@
 <template>
 	<div>
 		<v-card v-if="$store.state.isUserLoggedIn">
-			<v-card-media src="https://images.duckduckgo.com/iu/?u=http%3A%2F%2Fwallpapercave.com%2Fwp%2F6rh80gM.jpg&f=1" height="200px"></v-card-media>
+			<v-card-media :src="user.coverImage" height="200px"></v-card-media>
 			<v-card-title class="pa-2" justify-space-between>
 				<v-avatar id="avatar-holder">
-					<img id="avatar-image" src="https://randomuser.me/api/portraits/men/1.jpg">
+					<img
+						id="avatar-image"
+						style="width: 75px;height: 75px;"
+						:src="user.avatar"
+						@click="visitProfile">
 				</v-avatar>
 				<div class="pl-5">
 					<h3>{{user.firstName}} {{user.lastName}}</h3>
@@ -29,14 +33,31 @@
 			</v-card-actions>
 		</v-card>
 		<div v-else>
-			<h1 class="mt-4"> Welcome to Chirpr </h1>
+			<h1 class="mt-4" style="text-align: center;"> Welcome to Chirpr </h1>
 		</div>
 	</div>
 </template>
 
 <script>
 export default {
-	props: ['user']
+	data () {
+		return {
+			user: {}
+		}
+	},
+	created () {
+		this.user = this.$store.getters.fetchUserData
+	},
+	methods: {
+		visitProfile () {
+			this.$router.push({
+				name: 'profile',
+				params: {
+					id: this.$store.state.user.username
+				}
+			})
+		}
+	}
 }
 </script>
 
@@ -49,8 +70,6 @@ export default {
 	position: relative;
 	bottom: 40px;
 	left: 20px;
-  width: 80px;
-  height: 80px;
   border: 3px solid #fff;
   cursor: pointer;
 }

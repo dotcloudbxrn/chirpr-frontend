@@ -2,13 +2,13 @@
   <v-flex>
     <v-flex xs12 class="pt-0">
       <v-card>
-        <v-card-media src="https://images.duckduckgo.com/iu/?u=http%3A%2F%2Fwallpapercave.com%2Fwp%2F6rh80gM.jpg&f=1" height="400px">
+        <v-card-media :src="profile.coverImage" height="400px">
         </v-card-media>
       </v-card>
       <v-toolbar class="elevation-2 profile-action-buttons">
         <v-spacer></v-spacer>
         <v-avatar :size="imageHeight" id="main-profile-picture">
-          <img src="https://randomuser.me/api/portraits/men/1.jpg">
+          <img :src="profile.avatar">
         </v-avatar>
         <v-spacer></v-spacer>
         <v-toolbar-items>
@@ -36,6 +36,7 @@
           dark
           outline
           class="lowercase-toolbar-button"
+          @click="editProfile"
           >Edit Profile
         </v-btn>
         <v-spacer></v-spacer>
@@ -46,8 +47,20 @@
 </template>
 
 <script>
+import UserService from '@/services/UserService'
 import Feed from '@/components/Feed/MainLayout.vue'
 export default {
+  data () {
+    return {
+      profile: {}
+    }
+  },
+  async created () {
+    let username = this.$route.params.id
+    this.profile = (await UserService.getUserDetails(username)).data
+    console.log(this.$route)
+  },
+  // our previous profile - https://randomuser.me/api/portraits/men/1.jpg
   computed: {
     imageHeight () {
       switch (this.$vuetify.breakpoint.name) {
@@ -60,11 +73,39 @@ export default {
   },
   components: {
     feed: Feed
+  },
+  methods: {
+    // show button only if it's me who's logged in
+    editProfile () {
+      this.$router.push({
+        name: 'edit',
+        params: {
+          id: this.$store.state.user.username
+        }
+      })
+    }
+  },
+  watch: {
+    // '$route' (to, from) {
+        // to is just a route, from as well 
+        // this.loadedId = to.params.id
+    // }
+    '$route.params.id': {
+      immediate: true,
+      async handler (value) {
+        this.profile = (await UserService.getUserDetails(value)).data
+      }
+    }
   }
 }
 </script>
 
 <style>
+
+.lowercase-toolbar-button {
+  font-weight: 700;
+  text-transform: none;
+}
 .pButton:hover .btn__content:before {
   background-color: #fafafa;
 }

@@ -16,7 +16,7 @@
     <v-menu v-if="$store.state.isUserLoggedIn" offset-y left>
       <v-btn slot="activator" icon class="mx-2">
         <v-avatar id="profile" size="38px">
-          <img src="https://randomuser.me/api/portraits/men/1.jpg">
+          <img :src="$store.state.user.avatar">
         </v-avatar>
       </v-btn>
       <v-list>
@@ -91,7 +91,10 @@ export default {
   methods: {
     visitProfile () {
       this.$router.push({
-        name: 'profile'
+        name: 'profile',
+        params: {
+          id: this.$store.state.user.username
+        }
       })
     },
     logout () {

@@ -8,35 +8,23 @@
 			v-model="menu">
 			<!-- this is where you pass down a named slot from the chirp -->
 			<slot name="profileLink" slot="activator" class="ma-2"></slot>
-			<v-card>
-				<v-card-media src="https://images.duckduckgo.com/iu/?u=http%3A%2F%2Fwallpapercave.com%2Fwp%2F6rh80gM.jpg&f=1" height="100px"></v-card-media>
+			<v-card style="z-index:5">
+				<v-card-media :src="creator.coverImage" height="100px"></v-card-media>
 				<v-card-title class="pa-2" justify-space-between>
 					<v-avatar id="avatar-holder">
-						<img id="avatar-image" src="https://randomuser.me/api/portraits/men/1.jpg">
+						<img 
+							id="avatar-image"
+							:src="creator.avatar"
+							@click="navigateToProfile"
+							:data-username="creator.username">
 					</v-avatar>
 					<div class="pl-5">
-						<h3>Person personsons</h3>
-						<span class="grey--text">@crash</span>
+						<h3>{{creator.firstName}} {{creator.lastName}}</h3>
+						<span class="grey--text">@{{creator.username}}</span>
 					</div>
 				</v-card-title>
 				<v-card-text style="max-width: 300px;word-break; break-word">
-					THIS IS AN EXAMPLE
-					OF A VERY 
-					BIG BIOGRAPHY
-					STYLED IN A WRONG
-					WAYTHIS IS AN EXAMPLE
-					OF A VERY 
-					BIG BIOGRAPHY
-					STYLED IN A WRONG
-					WAYTHIS IS AN EXAMPLE
-					OF A VERY 
-					BIG BIOGRAPHY
-					STYLED IN A WRONG
-					WAYTHIS IS AN EXAMPLE
-					OF A VERY 
-					BIG BIOGRAPHY
-					STYLED IN A WRONG
-					WAY
+					{{creator.bio}}
 				</v-card-text>
 				<v-card-actions class="mt-2 mb-3">
 					<v-layout wrap justify-space-around>
@@ -61,9 +49,21 @@
 
 <script>
 export default {
+	props: ['creator'],
 	data () {
 		return {
 			menu: false
+		}
+	},
+	methods: {
+		navigateToProfile (el) {
+			let username = el.target.dataset.username
+			this.$router.push({
+				name: 'profile',
+				params: {
+					id: username
+				}
+			})
 		}
 	}
 }
@@ -83,6 +83,7 @@ export default {
   border: 3px solid #fff;
   cursor: pointer;
 }
+
 .pButton:hover .btn__content:before {
   background-color: #fafafa;
 }

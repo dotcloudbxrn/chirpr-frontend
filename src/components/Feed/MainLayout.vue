@@ -39,7 +39,6 @@ export default {
   },
   created () {
     this.userData = this.$store.getters.fetchUserData
-    console.log(this.$vuetify.breakpoint)
   },
   components: {
     ProfileInfo,
