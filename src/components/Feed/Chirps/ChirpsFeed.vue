@@ -5,11 +5,11 @@
     </v-toolbar>
     <v-divider></v-divider>
     <chirp v-for="(chirp, index) in chirps"
-          :key="chirp._id"
-          class="px-4 my-2"
-          :index="index"
-          :chirp="chirp"
-          :length="chirps.length"/>
+      :key="chirp._id"
+      class="px-4 my-2"
+      :index="index"
+      :chirp="chirp"
+      :length="chirps.length"/>
   </div>
 </template>
 

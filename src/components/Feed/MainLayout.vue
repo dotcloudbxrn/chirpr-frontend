@@ -3,8 +3,9 @@
     <create-chirp :showDialog="isChirping"/>
       <template v-if="this.$vuetify.breakpoint.mdAndUp">
         <v-flex xs3 v-if="this.$route.name === 'home'" class="profileCard">
-          <profile-card :user="userData"></profile-card>
+          <profile-card :user="loggedUserData"></profile-card>
         </v-flex>
+        <!-- Add speciffic profile view - pass it here -->
         <v-flex xs3 v-if="this.$route.name === 'profile'" class="profileCard">
           <profile-info :user="userData"></profile-info>
         </v-flex>
@@ -25,6 +26,7 @@
 </template>
 
 <script>
+// our previous profile - https://randomuser.me/api/portraits/men/1.jpg
 import ChirpsFeed from './Chirps/ChirpsFeed.vue'
 import ProfileInfo from './Profile/ProfileInfo.vue'
 import ProfileCard from './Profile/ProfileCard.vue'
@@ -34,7 +36,8 @@ import {mapGetters} from 'vuex'
 export default {
   data () {
     return {
-      userData: {}
+      loggedUserData: {},
+      requestedUserBio: {}
     }
   },
   created () {
