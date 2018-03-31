@@ -10,11 +10,16 @@
     </v-toolbar-items>
     <v-spacer/>
     <span id="logo">
-      <v-icon color="primary"
-        large
-        @click="redirectHome"
+      <span v-if="showLoadIcon">
+        <v-icon color="primary"
+          large
+          @click="redirectHome"
         >bubble_chart
-      </v-icon>
+        </v-icon>
+      </span>
+      <span v-else>
+        <v-progress-circular indeterminate color="primary"></v-progress-circular>
+      </span>
     </span>
     <v-spacer/>
     <items-right/>
@@ -27,7 +32,7 @@ import ItemsRight from './ItemsRight.vue'
 export default {
   data: () => {
     return {
-
+      
     }
   },
   components: {
@@ -38,6 +43,11 @@ export default {
       this.$router.push({
         name: 'home'
       })
+    }
+  },
+  computed: {
+    showLoadIcon () {
+      return !this.$store.state.isLoading
     }
   }
 }

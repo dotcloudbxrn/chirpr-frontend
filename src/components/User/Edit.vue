@@ -101,7 +101,7 @@ export default {
 					}
 				})
 			} catch (err) {
-				console.log(err)
+				console.log('couldnt edit', err)
 			}
 		}
 	},

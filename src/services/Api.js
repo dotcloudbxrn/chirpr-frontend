@@ -4,6 +4,12 @@ let env = process.env.NODE_ENV || 'development'
 
 export default () => {
   return axios.create({
-    baseURL: config[env].baseURL
+    baseURL: config[env].baseURL,
+    withCredentials: true,
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin': '*'
+    },
   })
 }

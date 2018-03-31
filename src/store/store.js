@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import createPersistedState from 'vuex-persistedstate'
 
+
 Vue.use(Vuex)
 
 export default new Vuex.Store({
@@ -11,13 +12,15 @@ export default new Vuex.Store({
     user: null,
     isUserLoggedIn: false,
     isChirping: false,
-    feedNeedsUpdate: false
+    feedNeedsUpdate: false,
+    isLoading: false
   },
   plugins: [
-    // createPersistedState()
+    // keeps users logged in across page refreshes
+    createPersistedState()
   ],
   mutations: {
-    setToken (state, token) {
+    SET_TOKEN (state, token) {
       state.token = token
       if (token) {
         state.isUserLoggedIn = true
@@ -25,34 +28,40 @@ export default new Vuex.Store({
         state.isUserLoggedIn = false
       }
     },
-    setUser (state, user) {
+    SET_USER (state, user) {
       state.user = user
     },
-    openChirp (state) {
+    START_CHIRPING (state) {
       state.isChirping = true
     },
-    stopChirping (state) {
+    STOP_CHIRPING (state) {
       state.isChirping = false
     },
-    triggerFUpdate (state) {
-      state.feedNeedsUpdate = !state.feedNeedsUpdate
+    TOGGLE_LOADING (state, loadingBool) {
+      state.isLoading = loadingBool
+    },
+    SOCKET_TEST (state, status) {
+      state.feedNeedsUpdate = status
     }
   },
   actions: {
     setToken ({commit}, token) {
-      commit('setToken', token)
+      commit('SET_TOKEN', token)
     },
     setUser ({commit}, user) {
-      commit('setUser', user)
+      commit('SET_USER', user)
     },
-    openChirp ({commit}) {
-      commit('openChirp')
+    startChirping ({commit}) {
+      commit('START_CHIRPING')
     },
-    stopChirping ({commit} ) {
-      commit('stopChirping')
+    stopChirping ({commit}) {
+      commit('STOP_CHIRPING')
     },
-    triggerFUpdate({commit}) {
-      commit('triggerFUpdate')
+    toggleLoading ({commit}, loadingBool) {
+      commit('TOGGLE_LOADING', loadingBool)
+    },
+    socket_test({commit}, status) {
+      commit('SOCKET_TEST', status)
     }
   },
   getters: {

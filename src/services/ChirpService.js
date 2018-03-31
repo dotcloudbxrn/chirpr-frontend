@@ -11,7 +11,9 @@ export default {
     }
     let req = Api()
     req.defaults.headers.common['Authorization'] = `Bearer ${payload.token}`
-    req.post('/chirp/create', {
+    // req.defaults.headers.common['Access-Control-Allow-Origin'] = '*'
+    console.log(req.defaults.headers)
+    return req.post('/chirp/create', {
       text: payload.text
     })
   }

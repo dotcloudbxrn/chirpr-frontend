@@ -44,12 +44,17 @@ export default {
 				text: this.chirp.textContent,
 				token: this.$store.state.token
 			}
-			ChirpService.createChirp(payload)
-			this.$store.dispatch('stopChirping')
-			this.chirp.textContent = ''
-			this.$store.dispatch('triggerFUpdate')
-			eventBus.$emit('newChirp')
-			// this.$router.push('profile')
+			try {
+				await ChirpService.createChirp(payload)
+				this.$store.dispatch('stopChirping')
+				this.chirp.textContent = ''
+				this.$store.dispatch('socket_test', (Math.floor(Math.random() * 100)) > 50)
+				// this.$store.dispatch('triggerFUpdate')
+				// eventBus.$emit('newChirp')
+				// this.$router.push('profile')
+			} catch (err) {
+				console.log('error in creating', err)
+			}	
 		}
 	}
 }

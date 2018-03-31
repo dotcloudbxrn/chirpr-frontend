@@ -36,7 +36,7 @@
       v-if="$store.state.isUserLoggedIn"
       color="primary"
       dark
-      @click.stop="openChirp"
+      @click.stop="startChirping"
       >Chirp
     </v-btn>
     <!-- items that show when not logged in -->
@@ -104,8 +104,8 @@ export default {
         name: 'home'
       })
     },
-    openChirp () {
-      this.$store.dispatch('openChirp')
+    startChirping () {
+      this.$store.dispatch('startChirping')
     }
   }
 }
