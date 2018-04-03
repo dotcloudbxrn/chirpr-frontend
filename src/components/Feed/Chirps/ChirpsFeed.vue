@@ -4,6 +4,7 @@
       <v-toolbar-title> Chirps </v-toolbar-title>
     </v-toolbar>
     <v-divider></v-divider>
+    <!-- TODO - add animation for chirp adding -->
     <!-- <transition-group name="slide" type="animation"> -->
       <chirp v-for="(chirp, index) in chirps"
         :key="chirp._id"
@@ -16,9 +17,10 @@
 </template>
 
 <script>
-// import socketio from 'socket.io';
+
 import ChirpService from '@/services/ChirpService'
 import Chirp from './Chirp.vue'
+
 export default {
   components: {
     Chirp
@@ -42,7 +44,11 @@ export default {
     '$store.state.feedNeedsUpdate': {
       immediate: true,
       async handler (shouldUpdate) {
-        console.log('should upd', shouldUpdate)        
+        // console.log('should upd', shouldUpdate)
+        if (shouldUpdate) {
+          this.updateFeed()
+          this.$store.dispatch('updateFeed', false)
+        }
       }
     }
   }

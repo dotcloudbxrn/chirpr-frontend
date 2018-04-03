@@ -1,5 +1,6 @@
 <template>
 	<v-flex>
+		<!-- Nest the Chirp into the Hover card -->
 		<hover-card :creator="chirp.creator">
 			<div class="exp" slot="profileLink">
 				<div style="text-align: left;">
@@ -8,8 +9,7 @@
 						@mouseout="underlineProfile"
 						@click="navigateToProfile"
 						:data-username="chirp.creator.username">
-						<!-- change based on profile -->
-						<!-- completely against DRY principles, but facing time issues -->
+						<!-- that Dataset usage is completely against DRY principles, but I'm facing time issues -->
 						<img class="profilePic"
 							:src="chirp.creator.avatar"
 							:data-username="chirp.creator.username">
@@ -32,17 +32,14 @@
 				<v-btn flat icon color="indigo lighten-2" dark>
 					<v-icon dark>autorenew</v-icon>
 				</v-btn>
-
 				<v-btn flat icon color="indigo lighten-2" dark>
 					<v-icon dark>favorite_border</v-icon>
 				</v-btn>
-
-				<v-btn flat icon color="blue lighten-2">
+				<v-btn flat icon color="indigo lighten-2">
 					<v-icon>thumb_up</v-icon>
 				</v-btn>
-
-				<v-btn flat icon color="red lighten-2">
-					<v-icon>thumb_down</v-icon>
+				<v-btn flat icon color="indigo lighten-2">
+					<v-icon>comment</v-icon>
 				</v-btn>
   	</v-layout>
 		<v-divider v-if="index + 1 < length"></v-divider>

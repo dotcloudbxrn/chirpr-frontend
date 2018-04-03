@@ -42,7 +42,6 @@ export default {
   methods: {
     async login () {
       try {
-        // this is a reference to the component.
         const response = await AuthenticationService.login({
           email: this.email,
           password: this.password
@@ -55,7 +54,6 @@ export default {
         })
       } catch (error) {
         // error is what is returned by axios
-        // the same one you're exporting as default
         this.error = error.response.data.error
       }
     }

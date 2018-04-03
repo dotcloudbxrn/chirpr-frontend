@@ -6,12 +6,10 @@ import Vuetify from 'vuetify'
 import App from './App'
 import router from './router'
 import store from './store/store'
-import socketio from 'socket.io-client'
-import VueSocketIO from 'vue-socket.io'
 import config from './config'
-let ENV = process.env.NODE_ENV || 'development'
 
-Vue.use(Vuetify, VueSocketIO)
+Vue.use(Vuetify)
+
 Vue.config.productionTip = false
 Vue.component('panel', Panel)
 

@@ -2,17 +2,17 @@ import Api from '@/services/Api'
 
 export default {
   index () {
+    // fetch all chirps
     return Api().get('chirps')
   },
   createChirp (payload) {
+    // don't allow empty or unauthorized chirps
     if (!payload.text || !payload.token) {
-      alert('Please... Do not')
       return
     }
     let req = Api()
+    // Add the authorization to the POST request (preflighted)
     req.defaults.headers.common['Authorization'] = `Bearer ${payload.token}`
-    // req.defaults.headers.common['Access-Control-Allow-Origin'] = '*'
-    console.log(req.defaults.headers)
     return req.post('/chirp/create', {
       text: payload.text
     })

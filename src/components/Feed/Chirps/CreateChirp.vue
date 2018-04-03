@@ -1,5 +1,5 @@
 <template>
-	<v-dialog :value=showDialog max-width="500px" @input="handleCancel">
+	<v-dialog :value=showDialog width="600px" @input="handleCancel">
 		<v-card>
 			<v-card-text>
 				<v-card-title class="pa-0">
@@ -48,11 +48,9 @@ export default {
 				await ChirpService.createChirp(payload)
 				this.$store.dispatch('stopChirping')
 				this.chirp.textContent = ''
-				this.$store.dispatch('socket_test', (Math.floor(Math.random() * 100)) > 50)
-				// this.$store.dispatch('triggerFUpdate')
-				// eventBus.$emit('newChirp')
-				// this.$router.push('profile')
+				this.$store.dispatch('updateFeed', true)
 			} catch (err) {
+				// todo - add proper error
 				console.log('error in creating', err)
 			}	
 		}

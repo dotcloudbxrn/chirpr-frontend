@@ -6,7 +6,7 @@
   "private": true,
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
-    "start": "node server.js",
+    "start": "node clientServer.js",
     "lint": "eslint --ext .js,.vue src",
     "build": "node build/build.js"
   },
@@ -73,8 +73,8 @@
     "webpack-merge": "^4.1.0"
   },
   "engines": {
-    "node": "v8.10.0",
-    "npm": "5.7.1"
+    "node": "^v8.11.1",
+    "npm": "^5.6.0"
   },
   "browserslist": [
     "> 1%",

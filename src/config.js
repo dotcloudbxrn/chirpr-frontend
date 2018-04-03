@@ -3,6 +3,8 @@ module.exports = {
     baseURL: `http://localhost:4040`
   },
   production: {
-    baseURL: `https://chirpr-server.herokuapp.com`
+    baseURL: `http://localhost:4040`
+    
+    // baseURL: `https://chirpr-server.herokuapp.com`
   }
 }

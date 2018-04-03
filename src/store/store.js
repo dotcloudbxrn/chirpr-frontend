@@ -40,8 +40,8 @@ export default new Vuex.Store({
     TOGGLE_LOADING (state, loadingBool) {
       state.isLoading = loadingBool
     },
-    SOCKET_TEST (state, status) {
-      state.feedNeedsUpdate = status
+    UPDATE_FEED (state, updateBool) {
+      state.feedNeedsUpdate = updateBool
     }
   },
   actions: {
@@ -60,8 +60,8 @@ export default new Vuex.Store({
     toggleLoading ({commit}, loadingBool) {
       commit('TOGGLE_LOADING', loadingBool)
     },
-    socket_test({commit}, status) {
-      commit('SOCKET_TEST', status)
+    updateFeed ({commit}, updateBool) {
+      commit('UPDATE_FEED', updateBool)
     }
   },
   getters: {
