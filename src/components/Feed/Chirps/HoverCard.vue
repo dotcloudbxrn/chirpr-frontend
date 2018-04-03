@@ -1,9 +1,10 @@
 <template>
-	<div class="hoverCard">
+	<div>
 		<v-menu
 			open-on-hover
 			max-width=550
 			min-width=500
+			offset-x
 			:close-on-content-click="false"
 			v-model="menu">
 			<!-- this is where you pass down a named slot from the chirp -->
@@ -111,7 +112,7 @@ export default {
 #avatar-image {
 	position: relative;
 	bottom: 40px;
-	left: 10px;
+	left: 8px;
   width: 80px;
   height: 80px;
   border: 3px solid #fff;
@@ -135,9 +136,4 @@ export default {
   color: #1976D2;
   font-size: 1.4rem;
 }
-
-.hoverCard > *{
-	max-width: 500px;
-}
-
 </style>
